@@ -1,0 +1,116 @@
+/* Colores y tipografías de Brick Vault. Cambiando estas variables cambia todo el diseño. */
+:root {
+  --fondo: #f4f6fb;
+  --superficie: #ffffff;
+  --tinta: #1b1f2a;
+  --suave: #5b6272;
+  --linea: #d6dbe8;
+  --marca: #ffcf00;
+  --marca-tinta: #1b1f2a;
+  --marca-activo: #d01012;
+  --marca-activo-tinta: #ffffff;
+  --acento: #0055bf;
+  --acento-fuerte: #003f8f;
+  --acento-tinta: #ffffff;
+  --peligro: #b00d0f;
+  --campo: #ffffff;
+  --borde-campo: #b8c0d4;
+  --hover: #f7f9fd;
+  --radio: 6px;
+  --titulos: "Fredoka", "Trebuchet MS", sans-serif;
+  --texto: "Nunito", "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--texto); font-size: 15px; line-height: 1.5; color: var(--tinta); background: var(--fondo); }
+h1, h2, p { margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+
+/* ---------- Estructura ---------- */
+.app.lado { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 100vh; }
+.barra { background: var(--marca); color: var(--marca-tinta); }
+.app.lado .barra { padding: 28px 14px; }
+.app.arriba .barra { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px; padding: 14px 32px; }
+.marca-nombre { font-family: var(--titulos); font-size: 26px; font-weight: 700; line-height: 1.1; }
+.app.lado .marca-nombre { padding: 0 10px 22px; }
+
+#menu { display: flex; gap: 4px; }
+.app.lado #menu { flex-direction: column; }
+.app.arriba #menu { flex-wrap: wrap; }
+#menu button { padding: 9px 14px; border: 0; border-radius: var(--radio); background: transparent; color: inherit; font-weight: 600; text-align: left; cursor: pointer; }
+#menu button:hover { background: color-mix(in srgb, currentColor 12%, transparent); }
+#menu button[aria-current="page"] { background: var(--marca-activo); color: var(--marca-activo-tinta); }
+
+main { padding: 30px 32px 48px; min-width: 0; }
+.app.arriba main { max-width: 1120px; margin: 0 auto; }
+.encabezado { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+.encabezado h1 { font-family: var(--titulos); font-size: 32px; font-weight: 700; line-height: 1.15; }
+.encabezado p { margin-top: 4px; max-width: 62ch; color: var(--suave); }
+
+/* ---------- Botones ---------- */
+.btn { padding: 9px 16px; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--superficie); font-weight: 600; white-space: nowrap; cursor: pointer; }
+.btn:hover { border-color: var(--suave); }
+.btn.primario { border-color: var(--acento); background: var(--acento); color: var(--acento-tinta); }
+.btn.primario:hover { border-color: var(--acento-fuerte); background: var(--acento-fuerte); }
+.btn.chico { padding: 5px 11px; font-size: 13px; }
+.btn.peligro { color: var(--peligro); }
+.btn.peligro:hover { border-color: var(--peligro); }
+
+/* ---------- Tabla ---------- */
+.tabla-caja { overflow-x: auto; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--superficie); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 16px; text-align: left; vertical-align: middle; }
+th { border-bottom: 2px solid var(--linea); font-size: 13px; font-weight: 700; color: var(--suave); white-space: nowrap; }
+td { border-bottom: 1px solid var(--linea); }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: var(--hover); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.botones { text-align: right; white-space: nowrap; }
+td.botones .btn + .btn { margin-left: 6px; }
+td.dato { width: 34%; font-weight: 600; }
+.pildora { display: inline-block; padding: 2px 11px; border: 1px solid var(--borde-campo); border-radius: 999px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.vacio { padding: 40px 20px; text-align: center; color: var(--suave); }
+
+/* ---------- Ventana del formulario ---------- */
+.ventana { width: min(580px, calc(100vw - 32px)); max-height: calc(100vh - 48px); padding: 28px; border: 1px solid var(--linea); border-radius: var(--radio); color: var(--tinta); background: var(--superficie); box-shadow: 0 20px 60px rgba(0, 0, 0, .35); }
+.ventana::backdrop { background: rgba(10, 12, 18, .6); }
+.ventana h2 { margin-bottom: 18px; font-family: var(--titulos); font-size: 24px; font-weight: 700; }
+.campos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px 16px; }
+.campo { display: flex; flex-direction: column; gap: 5px; font-size: 14px; font-weight: 600; }
+.campo.ancho { grid-column: 1 / -1; }
+.campo input, .campo select, .campo textarea { width: 100%; min-width: 0; padding: 9px 10px; border: 1px solid var(--borde-campo); border-radius: min(var(--radio), 8px); background: var(--campo); font-weight: 400; }
+.campo input[readonly] { opacity: .6; }
+.campo textarea { min-height: 76px; resize: vertical; }
+.error { margin-top: 14px; padding: 10px 12px; border-left: 4px solid var(--peligro); background: color-mix(in srgb, var(--peligro) 12%, transparent); color: var(--peligro); }
+.acciones-form { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+
+/* ---------- Aviso flotante ---------- */
+.aviso { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: calc(100vw - 32px); padding: 11px 18px; border-radius: min(var(--radio), 8px); background: var(--tinta); color: var(--fondo); font-weight: 600; box-shadow: 0 8px 24px rgba(0, 0, 0, .3); z-index: 10; }
+.aviso.malo { background: var(--peligro); color: #fff; }
+
+/* Detalle propio: fila de "studs" (los botones de un ladrillo) sobre la barra amarilla. */
+.barra { position: relative; padding-top: 30px; }
+.barra::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 16px;
+  background: radial-gradient(circle at 16px 16px, #e6b800 0 11px, transparent 11.5px) 0 0 / 32px 16px repeat-x; }
+/* Los botones se ven como ladrillos: borde inferior grueso. */
+.btn, #menu button { border-bottom-width: 4px; border-bottom-style: solid; }
+#menu button { border-bottom-color: transparent; }
+#menu button[aria-current="page"] { border-bottom-color: #8f0a0c; }
+.btn.primario { border-bottom-color: #003070; }
+
+/* ---------- Pantallas pequeñas ---------- */
+@media (max-width: 780px) {
+  .app.lado { display: block; }
+  .app.lado .barra, .app.arriba .barra { display: flex; flex-wrap: nowrap; align-items: center; gap: 12px; padding: 12px 14px; }
+  .app.lado .marca-nombre { padding: 0; }
+  .marca-nombre { font-size: 20px; white-space: nowrap; }
+  .app.lado #menu, .app.arriba #menu { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; }
+  #menu button { white-space: nowrap; }
+  main { padding: 20px 14px 40px; }
+  .encabezado { flex-direction: column; align-items: flex-start; }
+  .encabezado h1 { font-size: 26px; }
+  .tabla-caja > table { min-width: 620px; }
+  .campos { grid-template-columns: minmax(0, 1fr); }
+  .ventana { padding: 20px; }
+}
