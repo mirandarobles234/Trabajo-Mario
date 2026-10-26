@@ -1,0 +1,16 @@
+# Entorno virtual de Python
+venv/
+.venv/
+
+# Archivos que Python genera solo
+__pycache__/
+*.pyc
+
+# Configuración local de Vercel y variables privadas
+.vercel/
+.env
+
+# Archivos del sistema y del editor
+.DS_Store
+Thumbs.db
+.vscode/
