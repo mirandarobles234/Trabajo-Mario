@@ -96,7 +96,7 @@ brick-vault/
 
 ## Publicación
 
-- Aplicación en Vercel: https://ENLACE-DE-VERCEL.vercel.app
-- Repositorio: https://github.com/USUARIO/brick-vault
+- Aplicación en Vercel: [https://ENLACE-DE-VERCEL.vercel.app](https://trabajo-mario.vercel.app)
+- Repositorio:  https://github.com/mirandarobles234/Trabajo-Mario
 
 > En Vercel, el sistema de archivos es de solo lectura, por lo que la base SQLite se crea en `/tmp`. Los cambios funcionan mientras el servidor está activo, pero pueden reiniciarse a los datos de ejemplo cuando Vercel apaga la instancia. En la ejecución local los datos quedan guardados de forma permanente en `brick_vault.db`.
